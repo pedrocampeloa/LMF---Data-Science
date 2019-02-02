@@ -61,60 +61,7 @@ if __name__=='__main__':
     df.to_pickle('dataframe_acoes_tempocontinuo')
 
 
-#
-#    #Arrumar problema da variacao
-#    
-#    #tentativa 1 - nao deu certo
-#    df1 = pd.DataFrame(index=pd.date_range(datainicial, periods=delta),columns=[c for c in df])
-#    def dfajust1(df_old, df_new):
-#        for i in range(len(df_old)):
-#            for j in range(len(df_new)):
-#                if (df_new.index[j]==df_old.index[i]):
-#                    df_new.iloc[j]=df_old.iloc[i]
-#    
-#        for j in range (len(df_new)):
-#            if math.isnan(df_new.iloc[j][0]):
-#                var_cols = [col for col in df_new if col.startswith('var_')]
-#                df_new.iloc[j]=df_new.iloc[j-1]
-#                df_new.iloc[j][var_cols] = 0
-#        return df_new
-#    
-#    df2=dfajust1(df,df1)
-#        
-#    
-#    #tentativa2 - tb nao deu certo
-#    def_aux=df[:]
-#    list_cot=[]
-#    list_varpc=[]
-#    for column in df_aux:
-#        if column.startswith('cotacao'):
-#            list_cot.append(column)
-#        if column.startswith('var_pc'):
-#            list_varpc.append(column)
-#    
-#    for column in df_aux:
-#        if column.startswith('cotacao'):
-#            df_aux.drop([column],axis=1,inplace=True)         
-#        if column.startswith('min'):
-#            df_aux.drop([column],axis=1,inplace=True)
-#        if column.startswith('max'):
-#            df_aux.drop([column],axis=1,inplace=True)
-#        if column.startswith('vol'):
-#            df_aux.drop([column],axis=1,inplace=True)
-#        if column.startswith('var_pc'):
-#            df_aux.drop([column],axis=1,inplace=True)         
-#    list_var=d_auxf.columns       
-#    del_df_aux
-#    
-#    df1=df[0:1]
-#
-#    for i in list_cot:
-#        for j in list_var:
-#            df1[j]=df1[i]-df1[i].shift(1)
-#            
-#    df[0:1]=df1[0:1]
-#    
-    
+
 
     #Escolher variável a ser prevista, dentro da lista escolhida:
     acoes = ['PETR4.SA', 'ABEV3.SA', 'B3SA3.SA', 'BBAS3.SA', 'BBDC3.SA', 'BBSE3.SA', 'VALE3.SA',
